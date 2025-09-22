@@ -4,6 +4,9 @@ Ce projet utilise Angular côté front et une API côté serveur. La configurati
 ## 📋 Table des matières
 ## 🚀 Technologies utilisées
   - **Angular**
+  - ** node js ** 
+  - ** npm **
+  - ** docker **
 
 ## Prérequis
 - Windows 11 avec WSL2 activé
@@ -23,7 +26,17 @@ Ce projet utilise Angular côté front et une API côté serveur. La configurati
     git clone https://github.com/Tovintsoa/exam_management_front.git
     cd exam_management_front
   ```
-### 3. Construction et démarrage des services
+
+### 3. vérification 
+Vérifier que les droits sont corrects sur le dossier :
+  ```bash
+    sudo chown -R $USER:$USER /home/tovinsoa/www2/exam_management_front
+ ```
+### 4. Build 
+```bash
+npm install
+ ```
+### 5. Construction et démarrage des services
 
   ```bash
   # Construction des images Docker
@@ -32,9 +45,8 @@ Ce projet utilise Angular côté front et une API côté serveur. La configurati
   # Démarrage de tous les services
   docker compose up -d
   ```
-
-
-4. **Connexion**
+6**Connexion** 
+    Accéder à l'url : http://localhost:4200/
 
     Email : tianatovintsoa@gmail.com
 
