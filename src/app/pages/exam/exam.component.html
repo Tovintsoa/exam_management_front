@@ -1,0 +1,75 @@
+<app-header-common></app-header-common>
+<div class="max-w-xl mx-auto mt-10 p-6 bg-white border rounded-lg shadow-md">
+  <button class="mb-4 px-4 py-2 rounded-lg border border-gray-300 hover:bg-gray-100 text-gray-700 flex items-center"
+          (click)="goBack()">
+    <!-- Icône SVG -->
+    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+         stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-1">
+      <path stroke-linecap="round" stroke-linejoin="round" d="M9 15L3 9m0 0l6-6M3 9h12a6 6 0 0 1 0 12h-3" />
+    </svg>
+
+    Retour
+  </button>
+  <h2 class="text-2xl font-bold mb-4"> Organiser un examen</h2>
+
+  <form [formGroup]="examForm" (ngSubmit)="submit()" class="space-y-4">
+
+    <!-- Nom étudiant -->
+    <div>
+      <label class="block text-sm font-medium mb-1">Nom de l’étudiant</label>
+      <input type="text" formControlName="studentName"
+             class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500" />
+    </div>
+    <p *ngIf="examForm.get('studentName')?.touched && examForm.get('studentName')?.invalid"
+       class="text-red-600 text-sm mt-1">
+      Le nom de l’étudiant est requis.
+    </p>
+
+    <!-- Lieu -->
+    <div>
+      <label class="block text-sm font-medium mb-1">Lieu</label>
+      <input type="text" formControlName="location"
+             class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500" />
+    </div>
+
+    <!-- Date et Heure -->
+    <div class="flex space-x-4">
+      <div class="flex-1">
+        <label class="block text-sm font-medium mb-1">Date</label>
+        <input type="date" formControlName="date"
+               class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500" />
+        <p *ngIf="examForm.get('date')?.touched && examForm.get('date')?.invalid"
+           class="text-red-600 text-sm mt-1">
+          La date est requise.
+        </p>
+      </div>
+      <div class="flex-1">
+        <label class="block text-sm font-medium mb-1">Heure</label>
+        <input type="time" formControlName="time"
+               class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500" />
+        <p *ngIf="examForm.get('time')?.touched && examForm.get('time')?.invalid"
+           class="text-red-600 text-sm mt-1">
+          L’heure est requise.
+        </p>
+      </div>
+    </div>
+
+    <!-- Statut -->
+    <div>
+      <label class="block text-sm font-medium mb-1">Statut</label>
+      <select formControlName="status"
+              class="w-full border rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-orange-500">
+        <option>À organiser</option>
+        <option>Confirmé</option>
+        <option>Annulé</option>
+        <option>En recherche de place</option>
+      </select>
+    </div>
+
+    <!-- Bouton -->
+    <button type="submit"
+            class="w-full px-4 py-2 bg-orange-500 hover:bg-orange-600 text-white rounded-lg font-medium">
+      Ajouter l’examen
+    </button>
+  </form>
+</div>
