@@ -30,21 +30,30 @@ Ce projet utilise Angular côté front et une API côté serveur. La configurati
 ### 3. vérification 
 Vérifier que les droits sont corrects sur le dossier :
   ```bash
-    sudo chown -R $USER:$USER /home/tovinsoa/www2/exam_management_front
+   # Lance la commande 
+    pwd  
+   # copier le résultat de pwd sur [dir to project]
+    sudo chown -R $USER:$USER [dir to project]
  ```
-### 4. Build 
-```bash
-npm install
- ```
-### 5. Construction et démarrage des services
+### 4. Construction et démarrage des services
 
   ```bash
   # Construction des images Docker
   docker compose build --no-cache
   
+  
   # Démarrage de tous les services
   docker compose up -d
   ```
+  
+### 5. Build 
+
+```bash
+ docker exec -it exam_management_front-angular-app-1 sh 
+ 
+ npm install
+ ```
+
 6**Connexion** 
     Accéder à l'url : http://localhost:4200/
 
